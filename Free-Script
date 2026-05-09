@@ -1,0 +1,63 @@
+local key = nil
+local Key = Instance.new("ScreenGui")
+local Keyframe = Instance.new("Frame")
+local Keylabel = Instance.new("TextLabel")
+local Keybox = Instance.new("TextBox")
+
+Key.Name = "Key"
+Key.Parent = game:GetService ("CoreGui")
+Key.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Keyframe.Name = "Keyframe"
+Keyframe.Parent = Key
+Keyframe.AnchorPoint = Vector2.new(0.5, 0.5)
+Keyframe.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+Keyframe.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Keyframe.BorderSizePixel = 0
+Keyframe.Position = UDim2.new(0.5, 0, 0.5, 0)
+Keyframe.Size = UDim2.new(0.400000006, 0, 0.400000006, 0)
+
+Keylabel.Name = "Keylabel"
+Keylabel.Parent = Keyframe
+Keylabel.AnchorPoint = Vector2.new(0.5, 0)
+Keylabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Keylabel.BackgroundTransparency = 1.000
+Keylabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Keylabel.BorderSizePixel = 0
+Keylabel.Position = UDim2.new(0.5, 0, 0.100000001, 0)
+Keylabel.Size = UDim2.new(1, 0, 0, 50)
+Keylabel.Font = Enum.Font.Gotham
+Keylabel.Text = "plasmaadmin.xyz/key"
+Keylabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+Keylabel.TextSize = 29.000
+Keylabel.TextWrapped = true
+
+Keybox.Name = "Keybox"
+Keybox.Parent = Keyframe
+Keybox.AnchorPoint = Vector2.new(0.5, 0.5)
+Keybox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Keybox.BackgroundTransparency = 0.900
+Keybox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Keybox.BorderSizePixel = 0
+Keybox.Position = UDim2.new(0.5, 0, 0.5, 0)
+Keybox.Size = UDim2.new(1, 0, 0, 50)
+Keybox.ClearTextOnFocus = false
+Keybox.Font = Enum.Font.Gotham
+Keybox.PlaceholderText = "Enter your key here"
+Keybox.Text = ""
+Keybox.TextColor3 = Color3.fromRGB(255, 255, 255)
+Keybox.TextSize = 19.000
+
+Keybox.FocusLost:Connect(function(eP)
+	if eP then
+		key = Keybox.Text
+        end
+end)
+	
+repeat task.wait() until key ~= nil
+
+Key:Destroy()
+	
+script_key = key
+
+loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/169c1493681890a8d717775b9d2f68ac.lua"))()
