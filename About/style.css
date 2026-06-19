@@ -1,0 +1,207 @@
+:root {
+    --setwidth: clamp(280px,80vw,920px);
+    --fat: 16px;
+    --smalltext :clamp(10px,1.2vw,14px);
+    --lessbigtext :clamp(16px,1.4vw,20px);
+    --bigtext :clamp(20px,1.4vw,28px);
+}
+
+@font-face {
+    font-family: sourcesans;
+    src: url(sourcesans3medium.ttf);
+}
+
+html {
+    background-color: rgb(12, 12, 12);
+    color: rgb(200, 200, 200);
+    font-family: sourcesans;
+    font-size: 16px;
+}
+
+body {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    height: 98vh;
+}
+
+.al2r {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileparttxt {
+    flex-grow: 1;
+    margin: var(--fat);
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.textmargin {
+    margin: .5px 0 1.5px 0;
+    font-size: var(--smalltext);
+}
+
+.bigtext {
+    font-size: var(--bigtext);
+}
+p {
+    font-size: var(--lessbigtext);
+}
+.profilepartimg {
+    border-radius: 12px;
+    height: clamp(132px,17vw,192px);
+    margin: var(--fat);
+    margin-top: 0;
+    flex-grow: 0;
+}
+.mtop {
+    justify-content: start;
+    background-color: rgba(255, 255, 255, 0.00);
+    padding: 6px 0px 6px 0px;
+    border-radius: 6px;
+    width: var(--setwidth);
+}
+.main {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 6px;
+    z-index: 3;
+    padding-top: 12px;
+    border-radius: 6px;
+    width: var(--setwidth);
+    box-shadow: 0px 0px 25px 10px rgb(10, 10, 10),
+                0px 0px 13px 1px rgb(12, 12, 12) inset;
+
+    
+    backdrop-filter: blur(3px);
+}
+#slidescontainer {
+    /*max-height: 300px;*/
+    overflow: hidden;
+    overflow-x: auto;
+    background-color: transparent   ;
+}
+.main > div {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+.sicons {
+    justify-content: left;
+    height: calc(var(--fat)*2);
+}   
+.icons {
+    justify-content: left;
+    padding: 0 var(--fat) calc(var(--fat)*.5) var(--fat);
+}
+.icons a{
+    height: 40px;
+    margin-right: 5px;
+}
+.icons a img {
+    border-radius: 5px;
+}
+
+.foot {
+    width: calc(var(--setwidth) + 8vw);
+    box-shadow: none;
+}
+
+footer {
+    display: grid;
+    justify-content: center;
+    padding: .8px;
+    width: 100vw;
+    left: 0;
+    position: fixed;
+    bottom: 0;
+}
+
+
+.bgimgs{
+    width: 100%;
+    top: 0;
+    bottom:0;
+    overflow-y: hidden;
+    position: fixed;
+    z-index: 0;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    filter: blur(2px);
+    --webkit-filter: blur(2px);
+}
+input[type="checkbox"].bgimgs{
+    width: 100%;
+    top: 0;
+    bottom:0;
+    position: fixed;
+    z-index: 1;
+    opacity: 0;
+}
+
+input[type="checkbox"].bgimgs:checked + .main{
+    display: none;
+    animation-play-state: paused;
+}
+input[type="checkbox"].bgimgs:checked + .main + .bgimgs{
+    filter: blur(0);
+    --webkit-filter: blur(0);
+    animation: scrolupdown 10s alternate linear infinite;
+}
+
+.imgs4bg{
+    width: 19.6%;
+}
+.imgs4bgdivmax{
+    height: clamp(12px,33vw,420px);
+    display: flex;
+}
+.imgs4bgdivmax > img{
+    height: auto;
+}
+.imgs4bgdivmax1{
+    height: clamp(12px,33vw,240px);
+    display: flex;
+}
+.imgs4bgdivmax1 > img{
+    width: clamp(50px,33%,420px);
+}
+
+@media screen and (max-width: 520px) {
+    #infop {
+        flex-direction: column;
+    }
+    .profilepartimg {
+        height: clamp(132px,50vw,192px);
+    }
+    :root {
+        --smalltext :clamp(12px,1.2vw,14px);
+    }
+}
+
+
+@media screen and (min-width:120px) and (max-width: 540px) {
+    .imgs4bg{
+        width: 48%;
+    }
+    :root {
+        --smalltext :clamp(12px,1.2vw,14px);
+    }
+}
+@media screen and (min-width:540px) and (max-width: 637px) {
+    .imgs4bg{
+        width: 49%;
+    }
+    :root {
+        --smalltext :clamp(12px,1.2vw,14px);
+    }
+}
+
+@media screen and (min-width:637px) and (max-width: 728px) {
+    .imgs4bg{
+        width: 33%;
+    }
+}
+@media screen and (min-width:720px) and (max-width: 1600px) {
+}
